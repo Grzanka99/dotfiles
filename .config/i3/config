@@ -8,16 +8,16 @@ exec --no-startup-id xss-lock i3lock
 
 # Autostart
 exec polybar cezary &
-exec --no-startup-id nm-applet &
-exec pamac-tray &
-exec redshift-gtk &
 exec libinput-gestures &
 exec nitrogen --restore &
 exec ~/picomrun.sh &
 exec dunst &
+exec gnome-keyring-daemon &
+exec --no-startup-id nm-applet &
+exec pamac-tray &
+exec redshift-gtk &
 exec blueman-applet &
 exec volumeicon
-exec gnome-keyring-daemon &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -168,6 +168,7 @@ for_window [window_role="About"] floating enable
 for_window [class="Lutris"] floating enable
 for_window [class="Wine"] floating enable
 for_window [class="Plank"] floating enable
+for_window [class="PacketTracer7"] floating enable
 
 gaps inner 3
 smart_gaps on
