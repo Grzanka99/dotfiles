@@ -7,17 +7,18 @@ set $mod Mod4
 exec --no-startup-id xss-lock i3lock
 
 # Autostart
-exec polybar cezary &
-exec libinput-gestures &
-exec nitrogen --restore &
+exec --no-startup-id polybar cezary &
+exec --no-startup-id libinput-gestures &
+exec --no-startup-id nitrogen --restore &
+exec --no-startup-id gnome-setting-daemon &
 exec ~/picomrun.sh &
 exec dunst &
-exec gnome-keyring-daemon &
+exec --no-startup-id gnome-keyring-daemon &
 exec --no-startup-id nm-applet &
-exec pamac-tray &
-exec redshift-gtk &
-exec blueman-applet &
-exec volumeicon
+exec --no-startup-id pamac-tray &
+exec --no-startup-id redshift-gtk &
+exec --no-startup-id blueman-applet &
+exec --no-startup-id volumeicon
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -169,6 +170,9 @@ for_window [class="Lutris"] floating enable
 for_window [class="Wine"] floating enable
 for_window [class="Plank"] floating enable
 for_window [class="PacketTracer7"] floating enable
+for_window [class="zoom"] floating enable
+for_window [class="Gnome-screenshot"] floating enable
+for_window [class="Skype"] floating enable
 
 gaps inner 3
 smart_gaps on
