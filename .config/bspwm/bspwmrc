@@ -1,0 +1,48 @@
+#! /bin/sh
+
+sxhkd &
+polybar cezary &
+libinput-gestures &
+nitrogen --restore &
+gnome-setting-daemon &
+picom --experimental-backends -c -b &
+dunst &
+gnome-keyring-daemon &
+nm-applet &
+pamac-tray &
+redshift-gtk &
+blueman-applet &
+volumeicon &
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config pointer_modifier super
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_corner
+bspc config focus_follows_pointer true
+
+bspc config border_width         2
+bspc config window_gap           3
+bspc config top_padding         27
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle	     true
+
+# Follow
+bspc rule -a Gimp desktop='^8' follow=on
+bspc rule -a Spotify desktop='^10' follow=on
+
+# Floatig
+bspc rule -a Pavucontrol state=floating
+bspc rule -a TelegramDesktop state=floating
+bspc rule -a zoom state=floating
+bspc rule -a Lutris state=floating
+bspc rule -a Wine state=floating
+bspc rule -a Plank state=floating
+bspc rule -a PacketTracer7 state=floating
+bspc rule -a Gnome-screenshot state=floating
+bspc rule -a Skype state=floating
+bspc rule -a Nm-connection-editor state=floating
+bspc rule -a Pamac-manager state=floating

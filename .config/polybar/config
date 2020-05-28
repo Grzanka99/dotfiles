@@ -33,26 +33,27 @@ nord14-solid = #a3be8c
 nord15-solid = #b48ead
 
 [bar/cezary]
+monitor = eDP1
 bottom = false
 fixed-center = true
 width = 100%
 height = 27
 offset-x = 0
 offset-y = 0
-; background = ${colors.nord0}
 background = ${colors.nord0}
 foreground = ${colors.nord4-solid}
 radius = 0
-line-size = 0
-line-color = #f00
+line-size = 1
 border-size =
 border-color =
 padding-left = 0
 padding-right = 1
 module-margin = 1
+wm-restack = i3
+override-redirect = true
 
 ;Fonts
-font-0 = "FiranSans:pixelsize=10;3"
+font-0 = "FiranSansRetina:pixelsize=11;2"
 font-1 = "NotoColorEmoji:scale=11;2"
 font-2 = FiraCodeRetina
 font-3 = FiraCodeRetina
@@ -76,8 +77,8 @@ tray-scale = 1
 enable-ipc = false
 
 modules-center = date
-modules-left = i3
-modules-right = cpu memory audio battery
+modules-left = i3 bspwm
+modules-right = cpu temperature memory audio battery backlight
 
 [module/date]
 type = internal/date
@@ -107,13 +108,14 @@ ramp-coreload-5-foreground = ${colors.nord11}
 type = internal/memory
 internal = 1
 format = <label>
-label = RAM: %mb_used%/%mb_total%
+label = RAM: %mb_used% / %mb_total%
 
 [module/audio]
 type = internal/pulseaudio
 interval = 5
 format-volume = <label-volume>
-label-muted = muted %percentage%%
+label-volume = %percentage%%
+label-muted = muted (%percentage%%)
 label-muted-foreground = ${colors.nord11-solid}
 click-right = pavucontrol &
 
@@ -129,41 +131,127 @@ format-full = <label-full>
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 
-label-full = Battery full
-label-charging = Battery: %percentage%%
-label-discharging = Battery: %percentage%%
+label-full = BAT: FULL
+label-charging = ⚡ %percentage%%
+label-discharging = 🔋 %percentage%%
+
+[module/backlight]
+type = internal/xbacklight
+card = eDP1
+format = <label>
+label = 💡 %percentage%%
+
+[module/temperature]
+type = internal/temperature
+interval = 1
+base-temperature = 35
+warn-temperature = 65
+
+format = <label> <ramp>
+
+format-warn = <label-warn> <ramp>
+
+label = T: %temperature-c%
+
+label-warn = T: %temperature-c%
+label-warn-foreground = ${colors.nord12-solid}
+
+ramp-0 = ▁
+ramp-1 = ▂
+ramp-2 = ▃
+ramp-3 = ▄
+ramp-4 = ▅
+ramp-5 = ▆
+ramp-foreground = ${colors.nord8}
+ramp-3-foreground = ${colors.nord13}
+ramp-4-foreground = ${colors.nord12}
+ramp-5-foreground = ${colors.nord11}
 
 [module/i3]
 type = internal/i3
-pin-workspaces = true
-strip-wsnumbers = false
 index-sort = true
 enable-click = true
 enable-scroll = false
 
+
+strip-wsnumbers = true
+pin-workspaces = true
+
+format = <label-state> <label-mode>
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-background = ${colors.nord15}
+label-mode-background = ${colors.nord11-solid}
+
 label-focused = %name%
-label-focused-foreground = ${colors.nord14-solid}
-label-focused-background = ${colors.nord2}
-label-focused-underline = #f00
+label-focused-underline = ${colors.nord4-solid}
+label-focused-overline = ${colors.nord4-solid}
 label-focused-padding = 2
 
 label-unfocused = %name%
-label-unfocused-padding = 1
-label-unfocused-background = ${colors.nord1}
+label-unfocused-padding = 2
+
+label-focused-foreground = ${colors.nord5-solid}
+label-focused-background = ${colors.nord2}
+label-unfocused-foreground = ${colors.nord4}
+label-unfocused-background = ${colors.nord0}
+label-urgent-foreground = ${colors.nord4-solid}
+label-urgent-background = ${colors.nord12-solid}
 
 label-visible = %name%
-label-visible-underline = #f00
-label-visible-padding = 4
+label-visible-underline = #ff0000
+label-visible-padding = 2
 
 label-urgent = %name%
-label-urgent-foreground = ${colors.nord4-solid}
-label-urgent-background = ${colors.nord11}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
-label-separator = |
+label-separator =
 label-separator-padding = 0
-label-separator-background = ${colors.nord1}
+label-separator-background = ${colors.nord0}
+label-separator-foreground = ${colors.nord4}
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = false
+
+format = <label-state> <label-mode>
+
+label-monitor = %name%
+
+label-empty = %name%
+label-empty-foreground ${colors.nord4}
+label-empty-background ${colors.nord0}
+label-empty-padding = 2
+
+label-occupied = %name%
+label-occupied-background = ${colors.nord1}
+label-occupied-padding = 2
+
+label-focused = %name%
+label-focused-underline = ${colors.nord4-solid}
+label-focused-overline = ${colors.nord4-solid}
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+label-focused-foreground = ${colors.nord5-solid}
+label-focused-background = ${colors.nord2}
+label-unfocused-foreground = ${colors.nord4}
+label-unfocused-background = ${colors.nord0}
+label-urgent-foreground = ${colors.nord4-solid}
+label-urgent-background = ${colors.nord12-solid}
+
+label-visible = %name%
+label-visible-underline = #ff0000
+label-visible-padding = 2
+
+label-urgent = %name%
+label-urgent-padding = 2
+
+label-separator =
+label-separator-padding = 0
+label-separator-background = ${colors.nord0}
 label-separator-foreground = ${colors.nord4}
