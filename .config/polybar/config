@@ -49,7 +49,8 @@ border-color =
 padding-left = 0
 padding-right = 1
 module-margin = 1
-wm-restack = i3
+
+wm-restack = bspwm
 override-redirect = true
 
 ;Fonts
@@ -62,7 +63,7 @@ dpi-y = 96
 
 separator = |
 
-wm-name = "i3"
+wm-name = "bspwm"
 
 ; Tray settings
 tray-position = right
@@ -234,19 +235,10 @@ label-focused-underline = ${colors.nord4-solid}
 label-focused-overline = ${colors.nord4-solid}
 label-focused-padding = 2
 
-label-unfocused = %name%
-label-unfocused-padding = 2
-
 label-focused-foreground = ${colors.nord5-solid}
 label-focused-background = ${colors.nord2}
-label-unfocused-foreground = ${colors.nord4}
-label-unfocused-background = ${colors.nord0}
 label-urgent-foreground = ${colors.nord4-solid}
 label-urgent-background = ${colors.nord12-solid}
-
-label-visible = %name%
-label-visible-underline = #ff0000
-label-visible-padding = 2
 
 label-urgent = %name%
 label-urgent-padding = 2

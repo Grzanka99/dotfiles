@@ -1,5 +1,9 @@
-#! /bin/sh
+#!/bin/sh
 
+xset s on &
+xset s 900 &
+xss-lock slock +resetsaver &
+xsetroot -cursor_name left_ptr &
 sxhkd &
 polybar cezary &
 libinput-gestures &
