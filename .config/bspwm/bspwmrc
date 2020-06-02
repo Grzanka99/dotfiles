@@ -56,3 +56,5 @@ bspc rule -a Gnome-screenshot state=floating
 bspc rule -a Skype state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Pamac-manager state=floating
+bspc rule -a Processing state=floating
+bspc rule -a Lxappearance state=floating

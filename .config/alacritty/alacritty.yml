@@ -12,10 +12,11 @@ window:
 
 font:
   normal:
-    family: Fira Code Retina
+    family: monospace
     style: Regular
   bold:
-    family: Fira Code Retina
+    family: mono
+    
     style: Bold
   italic:
     family: Fira Code Retina
@@ -55,4 +56,4 @@ colors:
     cyan: "0x8FBCBB"
     white: "0xECEFF4"
 
-background_opacity: 0.5
+background_opacity: 0.8

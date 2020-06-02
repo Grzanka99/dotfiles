@@ -32,6 +32,7 @@ nord13-solid = #ebcb8b
 nord14-solid = #a3be8c
 nord15-solid = #b48ead
 
+
 [bar/cezary]
 monitor = eDP1
 bottom = false
