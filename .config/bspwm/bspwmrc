@@ -11,9 +11,8 @@ nitrogen --restore &
 gnome-setting-daemon &
 picom --experimental-backends -c -b &
 dunst &
-gnome-keyring-daemon &
+gnome-keyring-daemon --start &
 nm-applet &
-pamac-tray &
 redshift-gtk &
 blueman-applet &
 volumeicon &
@@ -58,3 +57,4 @@ bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Pamac-manager state=floating
 bspc rule -a Processing state=floating
 bspc rule -a Lxappearance state=floating
+bspc rule -a flameshot state=floating

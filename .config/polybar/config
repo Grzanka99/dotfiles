@@ -79,7 +79,7 @@ tray-scale = 1
 enable-ipc = false
 
 modules-center = date
-modules-left = i3 bspwm
+modules-left = bspwm
 modules-right = cpu temperature memory audio battery backlight
 
 [module/date]
@@ -110,7 +110,7 @@ ramp-coreload-5-foreground = ${colors.nord11}
 type = internal/memory
 internal = 1
 format = <label>
-label = RAM: %mb_used% / %mb_total%
+label = RAM: %gb_used% / %gb_total%
 
 [module/audio]
 type = internal/pulseaudio
@@ -147,7 +147,7 @@ label = 💡 %percentage%%
 type = internal/temperature
 interval = 1
 base-temperature = 35
-warn-temperature = 65
+warn-temperature = 75
 
 format = <label> <ramp>
 
