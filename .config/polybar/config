@@ -223,8 +223,8 @@ format = <label-state> <label-mode>
 label-monitor = %name%
 
 label-empty = %name%
-label-empty-foreground ${colors.nord4}
-label-empty-background ${colors.nord0}
+label-empty-foreground = ${colors.nord4}
+label-empty-background = ${colors.nord0}
 label-empty-padding = 2
 
 label-occupied = %name%

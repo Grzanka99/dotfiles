@@ -58,3 +58,4 @@ bspc rule -a Pamac-manager state=floating
 bspc rule -a Processing state=floating
 bspc rule -a Lxappearance state=floating
 bspc rule -a flameshot state=floating
+bspc rule -a Blueman-manager state=floating

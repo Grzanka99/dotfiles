@@ -14,6 +14,9 @@ super + d
 super + {g,y}
 	google-chrome-{stable,stable --app=https://youtube.com}
 
+super + m
+	google-chrome-stable --app=https://mail.google.com/mail/u/0/#inbox
+
 super + Print
 	flameshot gui
 
