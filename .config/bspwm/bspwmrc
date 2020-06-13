@@ -8,14 +8,20 @@ sxhkd &
 polybar cezary &
 libinput-gestures &
 nitrogen --restore &
-gnome-setting-daemon &
 picom --experimental-backends -c -b &
 dunst &
-gnome-keyring-daemon --start &
+gnome-keyring-daemon --start --components=secrets  &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 nm-applet &
 redshift-gtk &
 blueman-applet &
 volumeicon &
+
+if [ -x /usr/bin/flatpak ]; then
+    	if [ -x /usr/bin/xfsettingsd ]; then
+        	xfsettingsd &
+  	fi
+fi
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -42,6 +48,7 @@ bspc config urgent_border_color "#bf616a"
 # Follow
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a Spotify desktop='^10' follow=on
+bspc rule -a discord desktop='^10' follow=on
 
 # Floatig
 bspc rule -a Pavucontrol state=floating
@@ -49,7 +56,6 @@ bspc rule -a TelegramDesktop state=floating
 bspc rule -a zoom state=floating
 bspc rule -a Lutris state=floating
 bspc rule -a Wine state=floating
-bspc rule -a Plank state=floating
 bspc rule -a PacketTracer7 state=floating
 bspc rule -a Gnome-screenshot state=floating
 bspc rule -a Skype state=floating

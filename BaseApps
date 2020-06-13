@@ -1,0 +1,34 @@
+# Based on Manjaro
+
+# From repo:
+xorg-xset
+xorg-xsetroot
+xss-lock
+bspwm
+sxhkd
+polybar
+libinput-gestures
+nitrogen
+dunst
+gnome-keyring
+mate-polkit
+nm-applet
+NetworkManager
+PCManFM
+redshift-gtk
+blueman-applet
+volumeicon
+throttled
+xfce4-settings-gtk3
+alacritty
+Firefox
+flameshot
+tlp
+
+# AUR
+picom-tryone-git
+google-chrome
+
+# Compile
+slock
+dmenu
