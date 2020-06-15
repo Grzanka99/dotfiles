@@ -6,5 +6,6 @@ alias pacrem="sudo pacman -Rns"
 alias cpu="cpupower-gui"
 alias db="mysql -u cezary -p"
 alias show="kak -ro"
+alias update-all="echo --- PACMAN --- && sudo pacman -Syyuu && echo \n--- AUR ---  && yay -Syyuu && echo \n--- FLATPAK ---  && flatpak update"
 
 source ~/.nvm-fish/nvm.fish
