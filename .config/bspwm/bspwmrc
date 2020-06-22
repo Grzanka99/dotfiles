@@ -11,6 +11,7 @@ nitrogen --restore &
 picom --experimental-backends -c -b &
 dunst &
 gnome-keyring-daemon --start --components=secrets  &
+seahorse-daemon &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 nm-applet &
 redshift-gtk &
@@ -65,3 +66,4 @@ bspc rule -a Processing state=floating
 bspc rule -a Lxappearance state=floating
 bspc rule -a flameshot state=floating
 bspc rule -a Blueman-manager state=floating
+bspc rule -a Zathura state=tiled

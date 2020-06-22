@@ -28,6 +28,10 @@ super + Escape
 super + shift + l
 	systemctl suspend
 
+# Open configs
+super + alt + {f,s,b}
+	alacritty -e kak ~/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc}
+
 #
 # bspwm hotkeys
 #

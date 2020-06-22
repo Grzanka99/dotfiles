@@ -79,7 +79,7 @@ tray-scale = 1
 enable-ipc = false
 
 modules-center = date
-modules-left = bspwm
+modules-left = bspwm title
 modules-right = cpu temperature memory audio battery backlight
 
 [module/date]
@@ -210,6 +210,17 @@ label-separator =
 label-separator-padding = 0
 label-separator-background = ${colors.nord0}
 label-separator-foreground = ${colors.nord4}
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-background = ${colors.nord0}
+format-foreground = ${colors.nord4}
+format-padding = 2
+
+label = %title%
+label-maxlen = 50
+label-empty = 
 
 [module/bspwm]
 type = internal/bspwm

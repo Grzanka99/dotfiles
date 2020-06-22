@@ -1,0 +1,4 @@
+add-highlighter global/ number-lines
+set global tabstop 2
+set global indentwidth 2
+

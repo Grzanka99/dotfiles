@@ -8,4 +8,10 @@ alias db="mysql -u cezary -p"
 alias show="kak -ro"
 alias update-all="echo --- PACMAN --- && sudo pacman -Syyuu && echo \n--- AUR ---  && yay -Syyuu && echo \n--- FLATPAK ---  && flatpak update"
 
+# Devour
+alias zathura="devour zathura"
+alias sxiv="devour sxiv"
+alias pcmanfm="devour pcmanfm"
+alias snappy="devour snappy"
+
 source ~/.nvm-fish/nvm.fish
