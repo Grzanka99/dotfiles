@@ -83,6 +83,10 @@ alt + Tab
 super + {_,shift + }c
 	bspc node -f {next,prev}.local
 
+# Cycle layout
+super + {_,shift +}r
+	bspc node @/ -R {90,-90}
+
 # focus the next/previous desktop in the current monitor
 super + {_,shift + }Tab
 	bspc desktop -f {next, prev}.local

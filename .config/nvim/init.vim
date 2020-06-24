@@ -3,6 +3,11 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
@@ -34,21 +39,25 @@ set smarttab
 set expandtab
 set autoindent
 set copyindent
+set clipboard+=unnamedplus
 
 " Pugin config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
   \ ]
 
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
+  \ 'colorscheme': 'nord',
   \ }
 
-set clipboard+=unnamedplus
+let g:NERDTreeIgnore = ['^node_modules$']
+
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 colorscheme nord
