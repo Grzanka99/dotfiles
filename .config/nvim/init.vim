@@ -31,7 +31,7 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
-set number
+set number relativenumber
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -49,6 +49,9 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-clangd',
+  \ 'coc-phpls',
+  \ 'coc-godot',
   \ ]
 
 let g:lightline = {
