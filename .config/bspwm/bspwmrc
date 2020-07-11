@@ -11,18 +11,13 @@ nitrogen --restore &
 picom --experimental-backends -c -b &
 dunst &
 gnome-keyring-daemon --start --components=secrets  &
-seahorse-daemon &
-/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+/usr/lib/xfce-polkit/xfce-polkit &
 nm-applet &
-redshift-gtk &
 blueman-applet &
+redshift-gtk &
 volumeicon &
-
-if [ -x /usr/bin/flatpak ]; then
-    	if [ -x /usr/bin/xfsettingsd ]; then
-        	xfsettingsd &
-  	fi
-fi
+xfsettingsd &
+plank &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -66,4 +61,10 @@ bspc rule -a Processing state=floating
 bspc rule -a Lxappearance state=floating
 bspc rule -a flameshot state=floating
 bspc rule -a Blueman-manager state=floating
+
+# Tiled
 bspc rule -a Zathura state=tiled
+bspc rule -a Emacs state=tiled
+
+# Weird other rules
+bspc rule -a Plank layer=above manage=on border=off

@@ -10,6 +10,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'rust-lang/rust.vim'
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
@@ -38,6 +39,7 @@ set shiftwidth=2
 set smarttab
 set expandtab
 set autoindent
+set smartindent
 set copyindent
 set clipboard+=unnamedplus
 
@@ -52,6 +54,7 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-phpls',
   \ 'coc-godot',
+  \ 'coc-rls',
   \ ]
 
 let g:lightline = {
@@ -59,6 +62,7 @@ let g:lightline = {
   \ }
 
 let g:NERDTreeIgnore = ['^node_modules$']
+let g:rustfmt_autosave = 1
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
