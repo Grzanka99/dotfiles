@@ -1,0 +1,1 @@
+/home/cezary/.config/bspwm/plank.sh
