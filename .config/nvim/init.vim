@@ -52,9 +52,12 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-clangd',
-  \ 'coc-phpls',
   \ 'coc-godot',
   \ 'coc-rls',
+  \ 'coc-phpls',
+  \ 'coc-tabnine',
+  \ 'coc-vetur',
+  \ 'coc-css',
   \ ]
 
 let g:lightline = {
@@ -68,3 +71,4 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 colorscheme nord
+set termguicolors

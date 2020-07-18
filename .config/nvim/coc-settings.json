@@ -1,4 +1,5 @@
 {
   "suggest.noselect": false,
-  "coc.preferences.formatOnSaveFiletypes": ["*"]
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "intelephense.format.enable": false
 }
