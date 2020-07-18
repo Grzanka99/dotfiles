@@ -1,1 +1,5 @@
-/home/cezary/.config/bspwm/plank.sh
+#!/bin/sh
+while :
+do
+  plank
+done
