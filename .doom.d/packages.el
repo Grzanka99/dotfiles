@@ -1,0 +1,1 @@
+/home/cezary/.doom.d/packages.el

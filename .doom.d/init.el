@@ -1,0 +1,1 @@
+/home/cezary/.doom.d/init.el
