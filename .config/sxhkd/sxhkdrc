@@ -14,8 +14,11 @@ super + d
 super + w
   $BROWSER
 
-super + {e,z}
+super + {n,z}
   $TERM -e {$EDITOR,ranger}
+
+super + e
+  emacs
 
 super + Print
 	flameshot gui

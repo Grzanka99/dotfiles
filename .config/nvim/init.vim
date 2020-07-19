@@ -4,6 +4,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -11,6 +13,7 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'rust-lang/rust.vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
@@ -18,8 +21,15 @@ Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " Keybindings
-map <A-1> :NERDTreeToggle<CR>
+map <A-space> :NERDTreeToggle<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -42,6 +52,7 @@ set autoindent
 set smartindent
 set copyindent
 set clipboard+=unnamedplus
+set autoread
 
 " Pugin config
 let g:coc_global_extensions = [
@@ -54,10 +65,10 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-godot',
   \ 'coc-rls',
-  \ 'coc-phpls',
   \ 'coc-tabnine',
   \ 'coc-vetur',
   \ 'coc-css',
+  \ 'coc-fish',
   \ ]
 
 let g:lightline = {
@@ -69,6 +80,7 @@ let g:rustfmt_autosave = 1
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd FocusGained * silen! checktime
 
 colorscheme nord
 set termguicolors
