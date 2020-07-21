@@ -2,10 +2,12 @@ call plug#begin('~/.config/nvim/plugins')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
+Plug 'APZelos/blamer.nvim'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -13,10 +15,10 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'rust-lang/rust.vim'
-Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
 
@@ -69,14 +71,33 @@ let g:coc_global_extensions = [
   \ 'coc-vetur',
   \ 'coc-css',
   \ 'coc-fish',
+  \ 'coc-phpls',
   \ ]
 
 let g:lightline = {
   \ 'colorscheme': 'nord',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name'
+  \ },
   \ }
 
 let g:NERDTreeIgnore = ['^node_modules$']
 let g:rustfmt_autosave = 1
+
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+let g:blamer_enabled = 1
+let g:blamer_delay = 1000
+let g:blamer_show_in_visual_modes = 0
+let g:blamer_prefix = ' git: '
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync

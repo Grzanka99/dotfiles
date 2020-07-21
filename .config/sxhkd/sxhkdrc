@@ -14,11 +14,8 @@ super + d
 super + w
   $BROWSER
 
-super + {n,z}
+super + {e,z}
   $TERM -e {$EDITOR,ranger}
-
-super + e
-  emacs
 
 super + Print
 	flameshot gui
@@ -32,8 +29,8 @@ super + shift + l
 	systemctl suspend
 
 # Open configs
-super + alt + {f,s,b}
-	$TERM -e nvim ~/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc}
+super + alt + {f,s,b,n}
+	$TERM -e nvim ~/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc,nvim/init.vim}
 
 #
 # bspwm hotkeys
