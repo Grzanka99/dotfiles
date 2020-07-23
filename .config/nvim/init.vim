@@ -8,6 +8,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
+Plug 'tpope/vim-fugitive'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -25,13 +29,13 @@ call plug#end()
 " Keybindings
 map <A-space> :NERDTreeToggle<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
+map <leader>f :Files<CR>
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
