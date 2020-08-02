@@ -79,7 +79,7 @@ tray-scale = 1
 enable-ipc = false
 
 modules-center = date
-modules-left = i3 bspwm title
+modules-left = bspwm title
 modules-right = cpu temperature memory audio battery backlight
 
 [module/date]

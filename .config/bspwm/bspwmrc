@@ -1,11 +1,21 @@
 #!/bin/sh
 
+# Kill if restart
+killall \
+  redshift \
+  redshift-gtk \
+  /usr/lib/xfce-polkit/xfce-polkit \
+  nm-applet \
+  blueman-applet \
+  volumeicon \
+  &
+
 xset s on &
 xset s 900 &
 xss-lock slock +resetsaver &
 xsetroot -cursor_name left_ptr &
 sxhkd &
-polybar cezary &
+$HOME/.config/polybar/launch.sh &
 libinput-gestures &
 nitrogen --restore &
 picom --experimental-backends -c -b &
