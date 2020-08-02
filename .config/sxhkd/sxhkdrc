@@ -15,7 +15,10 @@ super + w
   $BROWSER
 
 super + {e,z}
-  $TERM -e {$EDITOR,ranger}
+  $TERM -e {code-git,ranger}
+
+super + q
+  emacs
 
 super + Print
 	flameshot gui
@@ -55,10 +58,6 @@ super + shift + a
 #
 # state/flags
 #
-
-# set desktop mode
-super + {t,y}
-	bspc desktop -l {tiled,monocle}
 
 # toggle fullscreen
 super + f
