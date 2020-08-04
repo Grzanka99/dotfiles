@@ -14,8 +14,11 @@ super + d
 super + w
   $BROWSER
 
-super + {e,z}
-  $TERM -e {code-git,ranger}
+super + {z}
+  $TERM -e {ranger}
+
+super + e
+  code-git
 
 super + q
   emacs

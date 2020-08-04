@@ -12,8 +12,8 @@ exec --no-startup-id xss-lock slock +resetsaver &
 exec --no-startup-id xsetroot -cursor_name left_ptr &
 exec --no-startup-id libinput-gestures &
 exec --no-startup-id nitrogen --restore &
-exec --no-startup-id polybar cezary &
-exec ~/picomrun.sh &
+exec --no-startup-id $HOME/.config/polybar/launch.sh i3 &
+exec --no-startup-id picom --experimental-backends -c -b &
 exec --no-startup-id dunst &
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets &
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit &
@@ -24,131 +24,28 @@ exec --no-startup-id blueman-applet &
 exec --no-startup-id volumeicon &
 exec --no-startup-id xfsettingsd &
 
-# Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
-
-# Grap window in floating mode key;
-floating_modifier $mod
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
-
-set $ws1 "1: I "
-set $ws2 "2: II "
-set $ws3 "3: III "
-set $ws4 "4: IV "
-set $ws5 "5: V "
-set $ws6 "6: VI "
-set $ws7 "7: VII "
-set $ws8 "8: VIII "
-set $ws9 "9: IX "
+set $ws1  "1: I "
+set $ws2  "2: II "
+set $ws3  "3: III "
+set $ws4  "4: IV "
+set $ws5  "5: V "
+set $ws6  "6: VI "
+set $ws7  "7: VII "
+set $ws8  "8: VIII "
+set $ws9  "9: IX "
 set $ws10 "10: X "
 
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
-
-# switch between workspaces
-
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
-
-# reload the configuration file
-bindsym $mod+Shift+r reload
-
-# restart i3
-bindsym $mod+Shift+Control+r restart
-# exit i3
-bindsym $mod+Shift+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+l exec i3exit suspend
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-  bindsym Left resize shrink width 5 px or 5 ppt
-  bindsym Down resize grow height 5 px or 5 ppt
-  bindsym Up resize shrink height 5 px or 5 ppt
-  bindsym Right resize grow width 5 px or 5 ppt
-
-  # back to normal: Enter or Escape or $mod+r
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-bindsym $mod+Return exec $TERM
-bindsym $mod+d exec dmenu_run
-bindsym $mod+w exec $BROWSER
-bindsym $mod+Print exec flameshot gui
-
 # Nord theme colors
-set $nord0 #2E3440
-set $nord1 #3B4252
-set $nord2 #434C5E
-set $nord3 #4C566A
-set $nord4 #D8DEE9
-set $nord5 #E5E9F0
-set $nord6 #ECEFF4
-set $nord7 #8FBCBB
-set $nord8 #88C0D0
-set $nord9 #81A1C1
+set $nord0  #2E3440
+set $nord1  #3B4252
+set $nord2  #434C5E
+set $nord3  #4C566A
+set $nord4  #D8DEE9
+set $nord5  #E5E9F0
+set $nord6  #ECEFF4
+set $nord7  #8FBCBB
+set $nord8  #88C0D0
+set $nord9  #81A1C1
 set $nord10 #5E81AC
 set $nord11 #BF616A
 set $nord12 #D08770
@@ -158,56 +55,150 @@ set $nord15 #B48EAD
 set $trans  #00000000
 
 
-## class                border  backgr. text    indic.   child_border
-client.focused          #FF0000  $nord4 #FF0000  $nord4
-client.focused_inactive #FF0000  $nord3 #FF0000  $nord3
-client.unfocused        #FF0000  $nord2 #FF0000  $nord2
-client.urgent           #FF0000  $nord11 #FF0000 $nord11
-client.placeholder      #FF0000  #FF0000 #FF0000 $nord3
+## class                border    backgr.   text      indic.   child_border
+client.focused          #FF0000   $nord4   #FF0000   $nord4
+client.focused_inactive #FF0000   $nord3   #FF0000   $nord3
+client.unfocused        #FF0000   $nord2   #FF0000   $nord2
+client.urgent           #FF0000   $nord11  #FF0000   $nord11
+client.placeholder      #FF0000   #FF0000  #FF0000   $nord3
 
-#bar {
-#  status_command i3status
-#  position top
-#  height 27
-#  tray_padding 5
-#  separator_symbol "|"
-#  tray_output primary
-#  font pango:Fira Sans 11
-#  strip_workspace_numbers yes
-#  colors {
-#    background $nord0
-#    focused_workspace $nord4 $nord3 $nord5
-#    urgent_workspace $nord11 $nord12 $nord5
-#    inactive_workspace $nord0 $nord0 $nord4
-#  }
-#}
+# Window settings
+for_window  [class="^.*"]                  border pixel 1
+for_window  [class="Pavucontrol"]          floating enable
+for_window  [class="TelegramDesktop"]      floating enable
+for_window  [window_role="About"]          floating enable
+for_window  [class="Lutris"]               floating enable
+for_window  [class="Wine"]                 floating enable
+for_window  [class="Plank"]                floating enable
+for_window  [class="PacketTracer7"]        floating enable
+for_window  [class="zoom"]                 floating enable
+for_window  [class="flameshot"]            floating enable
+for_window  [class="Skype"]                floating enable
+for_window  [class="Nm-connection-editor"] floating enable
+for_window  [class="Pamac-manager"]        floating enable
 
-for_window [class="^.*"] border pixel 2
-for_window [class="Pavucontrol"] floating enable
-for_window [class="TelegramDesktop"] floating enable
-for_window [window_role="About"] floating enable
-for_window [class="Lutris"] floating enable
-for_window [class="Wine"] floating enable
-for_window [class="Plank"] floating enable
-for_window [class="PacketTracer7"] floating enable
-for_window [class="zoom"] floating enable
-for_window [class="Gnome-screenshot"] floating enable
-for_window [class="Skype"] floating enable
-for_window [class="Nm-connection-editor"] floating enable
-for_window [class="Pamac-manager"] floating enable
-
-
-gaps inner 2
-gaps top 27
+# gaps settings
+gaps          inner 2
+gaps          top   27
 smart_borders on
 
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-  bindsym r gaps inner all set 20
-  bindsym d gaps inner all set 0
-  bindsym space gap inner all set 2
-  bindsym Return mode "$mode_gaps"
-  bindsym Escape mode "default"
-}
 # bindsym $mod + h gaps inner all set 20
+#
+# --- KEYBINDINGS ---
+floating_modifier $mod
+
+# modes
+bindsym $mod+f            fullscreen  toggle
+bindsym $mod+Shift+space  floating    toggle
+bindsym $mod+space        focus       mode_toggle
+
+# layouts
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# close/kill window
+bindsym $mod+Shift+q      kill
+
+bindsym $mod+Left         focus     left
+bindsym $mod+Down         focus     down
+bindsym $mod+Up           focus     up
+bindsym $mod+Right        focus     right
+
+bindsym $mod+Shift+Left   move      left
+bindsym $mod+Shift+Down   move      down
+bindsym $mod+Shift+Up     move      up
+bindsym $mod+Shift+Right  move      right
+
+# split mode
+bindsym $mod+h            split     h
+bindsym $mod+v            split     v
+
+# resize mode
+bindsym $mod+r            mode      "resize"
+
+mode "resize" {
+  bindsym Left    resize  shrink    width   5 px or 5 ppt
+  bindsym Down    resize  grow      height  5 px or 5 ppt
+  bindsym Up      resize  shrink    height  5 px or 5 ppt
+  bindsym Right   resize  grow      width   5 px or 5 ppt
+  bindsym Return  mode    "default"
+  bindsym Escape  mode    "default"
+}
+
+# gaps mode
+bindsym $mod+Shift+g      mode      "gaps"
+
+mode "gaps" {
+  bindsym r       gaps  inner all set 20
+  bindsym d       gaps  inner all set 0
+  bindsym space   gaps  inner all set 2
+  bindsym Return  mode  "default"
+  bindsym Escape  mode  "default"
+}
+
+# Window configs
+# reload config file
+bindsym $mod+Escape           reload
+# restart i3
+bindsym $mod+Shift+Control+r  restart
+# exit i3
+bindsym $mod+Shift+Control+e  exec    i3-msg exit
+# suspend
+bindsym $mod-Shift+l          exec    systemctl suspend
+
+
+# Wokspaces
+# switch between workspaces
+bindsym $mod+Tab          workspace next
+bindsym $mod+Shift+Tab    workspace prev
+
+# switch to workspace
+bindsym $mod+1            workspace $ws1
+bindsym $mod+2            workspace $ws2
+bindsym $mod+3            workspace $ws3
+bindsym $mod+4            workspace $ws4
+bindsym $mod+5            workspace $ws5
+bindsym $mod+6            workspace $ws6
+bindsym $mod+7            workspace $ws7
+bindsym $mod+8            workspace $ws8
+bindsym $mod+9            workspace $ws9
+bindsym $mod+0            workspace $ws10
+
+# send window to workspaces
+bindsym $mod+Shift+1      move container to workspace number $ws1
+bindsym $mod+Shift+2      move container to workspace number $ws2
+bindsym $mod+Shift+3      move container to workspace number $ws3
+bindsym $mod+Shift+4      move container to workspace number $ws4
+bindsym $mod+Shift+5      move container to workspace number $ws5
+bindsym $mod+Shift+6      move container to workspace number $ws6
+bindsym $mod+Shift+7      move container to workspace number $ws7
+bindsym $mod+Shift+8      move container to workspace number $ws8
+bindsym $mod+Shift+9      move container to workspace number $ws9
+bindsym $mod+Shift+0      move container to workspace number $ws10
+
+# Execute custom commands
+bindsym $mod+Return       exec  $TERM
+bindsym $mod+d            exec  dmenu_run
+bindsym $mod+w            exec  $BROWSER
+bindsym $mod+Print        exec  flameshot gui
+bindsym $mod+e            exec  code-git
+bindsym $mod+z            exec  $TERM -e ranger
+bindsym $mod+q            exec  emacs
+
+# open some configs
+bindsym $mod+Alt+b        exec  $TERM -e nvim $HOME/.config/i3/config
+bindsym $mod+Alt+n        exec  $TERM -e nvim $HOME/.config/nvim/init.vim
+bindsym $mod+Alt+f        exec  $TERM -e nvim $HOME/.config/fish/config.fish
+
+# Sys controll keybindings
+# audio
+bindsym XF86AudioRaiseVolume    pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume    pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute           pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute        pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Monitor brightness
+bindsym XF86MonBrightnessUp     xbacklight -inc 10
+
+bindsym XF86MonBrightnessDown   xbacklight -dec 10

@@ -169,48 +169,6 @@ ramp-3-foreground = ${colors.nord13}
 ramp-4-foreground = ${colors.nord12}
 ramp-5-foreground = ${colors.nord11}
 
-[module/i3]
-type = internal/i3
-index-sort = true
-enable-click = true
-enable-scroll = false
-
-
-strip-wsnumbers = true
-pin-workspaces = true
-
-format = <label-state> <label-mode>
-label-mode = %mode%
-label-mode-padding = 2
-label-mode-background = ${colors.nord11-solid}
-
-label-focused = %name%
-label-focused-underline = ${colors.nord4-solid}
-label-focused-overline = ${colors.nord4-solid}
-label-focused-padding = 2
-
-label-unfocused = %name%
-label-unfocused-padding = 2
-
-label-focused-foreground = ${colors.nord5-solid}
-label-focused-background = ${colors.nord2}
-label-unfocused-foreground = ${colors.nord4}
-label-unfocused-background = ${colors.nord0}
-label-urgent-foreground = ${colors.nord4-solid}
-label-urgent-background = ${colors.nord12-solid}
-
-label-visible = %name%
-label-visible-underline = #ff0000
-label-visible-padding = 2
-
-label-urgent = %name%
-label-urgent-padding = 2
-
-label-separator =
-label-separator-padding = 0
-label-separator-background = ${colors.nord0}
-label-separator-foreground = ${colors.nord4}
-
 [module/title]
 type = internal/xwindow
 format = <label>
