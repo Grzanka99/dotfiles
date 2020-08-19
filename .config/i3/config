@@ -18,7 +18,6 @@ exec --no-startup-id dunst &
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets &
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit &
 exec --no-startup-id nm-applet &
-exec --no-startup-id pamac-tray &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id volumeicon &
@@ -187,9 +186,9 @@ bindsym $mod+z            exec  $TERM -e ranger
 bindsym $mod+q            exec  emacs
 
 # open some configs
-bindsym $mod+Alt+b        exec  $TERM -e nvim $HOME/.config/i3/config
-bindsym $mod+Alt+n        exec  $TERM -e nvim $HOME/.config/nvim/init.vim
-bindsym $mod+Alt+f        exec  $TERM -e nvim $HOME/.config/fish/config.fish
+bindsym $mod+Mod1+b       exec  $TERM -e nvim $HOME/.config/i3/config
+bindsym $mod+Mod1+n       exec  $TERM -e nvim $HOME/.config/nvim/init.vim
+bindsym $mod+Mod1+f       exec  $TERM -e nvim $HOME/.config/fish/config.fish
 
 # Sys controll keybindings
 # audio
