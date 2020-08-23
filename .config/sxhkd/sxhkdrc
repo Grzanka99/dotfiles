@@ -7,8 +7,8 @@ super + Return
   $TERM
 
 # programs
-super + d
-	dmenu_run
+super + {_,shift} + d
+	rofi -show {drun,run}
 
 # Open default web browser
 super + w

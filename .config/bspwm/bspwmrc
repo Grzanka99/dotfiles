@@ -4,7 +4,6 @@
 killall \
   redshift \
   redshift-gtk \
-  /usr/lib/xfce-polkit/xfce-polkit \
   nm-applet \
   blueman-applet \
   volumeicon \
@@ -21,7 +20,7 @@ nitrogen --restore &
 picom --experimental-backends -c -b &
 dunst &
 gnome-keyring-daemon --start --components=secrets  &
-/usr/lib/xfce-polkit/xfce-polkit &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nm-applet &
 blueman-applet &
 redshift-gtk &
@@ -37,7 +36,7 @@ bspc config pointer_action2       resize_corner
 bspc config focus_follows_pointer true
 
 # Borders and gaps setup
-bspc config border_width          2
+bspc config border_width          1
 bspc config window_gap            3
 bspc config top_padding           27
 

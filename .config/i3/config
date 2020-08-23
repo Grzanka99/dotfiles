@@ -16,7 +16,7 @@ exec --no-startup-id $HOME/.config/polybar/launch.sh i3 &
 exec --no-startup-id picom --experimental-backends -c -b &
 exec --no-startup-id dunst &
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets &
-exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit &
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id blueman-applet &
@@ -178,7 +178,11 @@ bindsym $mod+Shift+0      move container to workspace number $ws10
 
 # Execute custom commands
 bindsym $mod+Return       exec  $TERM
-bindsym $mod+d            exec  dmenu_run
+
+# bindsym $mod+d            exec  dmenu_run
+bindsym $mod+d            exec  rofi -show drun
+bindsym $mod+Shift+d      exec  rofi -show run
+
 bindsym $mod+w            exec  $BROWSER
 bindsym $mod+Print        exec  flameshot gui
 bindsym $mod+e            exec  code-git
