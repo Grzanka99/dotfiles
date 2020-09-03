@@ -81,8 +81,6 @@ gaps          inner 2
 gaps          top   27
 smart_borders on
 
-# bindsym $mod + h gaps inner all set 20
-#
 # --- KEYBINDINGS ---
 floating_modifier $mod
 
@@ -110,8 +108,8 @@ bindsym $mod+Shift+Up     move      up
 bindsym $mod+Shift+Right  move      right
 
 # split mode
-bindsym $mod+h            split     h
-bindsym $mod+v            split     v
+bindsym $mod+h            split     h       ;exec notify-send "Horizontal"
+bindsym $mod+v            split     v       ;exec notify-send "Vertical"
 
 # resize mode
 bindsym $mod+r            mode      "resize"
