@@ -35,6 +35,10 @@ map       <leader>f       :Files<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" Move with tab between buffers
+nnoremap <TAB>    :bnext<CR>
+nnoremap <S-TAB>  :bprevious<CR>
+
 " Use alt + shift + hjkl to resize window
 nnoremap <M-S-j> :resize -2<CR>
 nnoremap <M-S-k> :resize +2<CR>
