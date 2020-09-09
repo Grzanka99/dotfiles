@@ -6,6 +6,9 @@
 super + Return
   $TERM
 
+super + s
+  xset r rate 200 25
+
 # programs
 super + {_,shift} + d
 	rofi -show {drun,run}

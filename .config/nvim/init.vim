@@ -27,9 +27,30 @@ Plug 'itchyny/vim-gitbranch'
 call plug#end()
 
 " Keybindings
-map <A-space> :NERDTreeToggle<CR>
-inoremap <silent><expr> <c-space> coc#refresh()
-map <leader>f :Files<CR>
+map       <A-space>       :NERDTreeToggle<CR>
+inoremap  <silent><expr>  <c-space> coc#refresh()
+map       <leader>f       :Files<CR>
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
+
+" Use alt + shift + hjkl to resize window
+nnoremap <M-S-j> :resize -2<CR>
+nnoremap <M-S-k> :resize +2<CR>
+nnoremap <M-S-h> :vertical resize -2<CR>
+nnoremap <M-S-l> :vertical resize +2<CR>
+
+"Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap <C-left> <C-w>h
+nnoremap <C-down> <C-w>j
+nnoremap <C-up> <C-w>k
+nnoremap <C-right> <C-w>l
 
 " Move lines up/down
 nnoremap <A-j> :m .+1<CR>==
@@ -63,6 +84,7 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+syntax enable
 set number relativenumber
 set tabstop=2
 set softtabstop=2
@@ -74,6 +96,15 @@ set smartindent
 set copyindent
 set clipboard+=unnamedplus
 set autoread
+set nobackup
+set nowritebackup
+set cursorline
+set splitbelow
+set splitright
+set mouse=a
+set encoding=utf-8
+set updatetime=300
+set timeoutlen=100
 
 " Pugin config
 let g:coc_global_extensions = [

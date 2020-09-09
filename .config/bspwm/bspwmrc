@@ -26,6 +26,7 @@ blueman-applet &
 redshift-gtk &
 volumeicon &
 xfsettingsd &
+xset r rate 200 25 &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
