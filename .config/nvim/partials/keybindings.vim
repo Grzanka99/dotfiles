@@ -62,3 +62,7 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+" NERD Commenter
+nnoremap <A-c> :call NERDComment(0,"toggle")<CR>
+vnoremap <A-c> :call NERDComment(0,"toggle")<CR>

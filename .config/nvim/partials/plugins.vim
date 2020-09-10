@@ -6,6 +6,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdcommenter'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install } }
 Plug 'junegunn/fzf.vim'
