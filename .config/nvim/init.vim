@@ -1,92 +1,6 @@
-call plug#begin('~/.config/nvim/plugins')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'APZelos/blamer.nvim'
-Plug 'tpope/vim-fugitive'
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install } }
-Plug 'junegunn/fzf.vim'
-
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-Plug 'rust-lang/rust.vim'
-
-Plug 'arcticicestudio/nord-vim'
-Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
-
-call plug#end()
-
-" Keybindings
-map       <A-space>       :NERDTreeToggle<CR>
-inoremap  <silent><expr>  <c-space> coc#refresh()
-map       <leader>f       :Files<CR>
-
-" Better tabbing
-vnoremap < <gv
-vnoremap > >gv
-
-" Move with tab between buffers
-nnoremap <TAB>    :bnext<CR>
-nnoremap <S-TAB>  :bprevious<CR>
-
-" Use alt + shift + hjkl to resize window
-nnoremap <M-S-j> :resize -2<CR>
-nnoremap <M-S-k> :resize +2<CR>
-nnoremap <M-S-h> :vertical resize -2<CR>
-nnoremap <M-S-l> :vertical resize +2<CR>
-
-"Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-nnoremap <C-left> <C-w>h
-nnoremap <C-down> <C-w>j
-nnoremap <C-up> <C-w>k
-nnoremap <C-right> <C-w>l
-
-" Move lines up/down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
-nnoremap <A-down> :m .+1<CR>==
-nnoremap <A-up> :m .-2<CR>==
-inoremap <A-down> <Esc>:m .+1<CR>==gi
-inoremap <A-up> <Esc>:m .-2<CR>==gi
-vnoremap <A-down> :m '>+1<CR>gv=gv
-vnoremap <A-up> :m '<-2<CR>gv=gv
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+source $HOME/.config/nvim/partials/plugins.vim
+source $HOME/.config/nvim/partials/keybindings.vim
+source $HOME/.config/nvim/partials/fzf.vim
 
 syntax enable
 set number relativenumber
@@ -126,6 +40,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-fish',
   \ 'coc-phpls',
+  \ 'coc-explorer',
   \ ]
 
 let g:lightline = {
@@ -139,14 +54,7 @@ let g:lightline = {
   \ },
   \ }
 
-let g:NERDTreeIgnore = ['^node_modules$']
 let g:rustfmt_autosave = 1
-
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDToggleCheckAllLines = 1
 
 let g:blamer_enabled = 1
 let g:blamer_delay = 1000

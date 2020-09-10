@@ -13,6 +13,7 @@ xset s on &
 xset s 900 &
 xss-lock slock +resetsaver &
 xsetroot -cursor_name left_ptr &
+sleep 1 && xset r rate 300 30 &
 sxhkd &
 $HOME/.config/polybar/launch.sh bspwm &
 libinput-gestures &
