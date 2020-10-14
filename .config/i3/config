@@ -10,6 +10,7 @@ exec --no-startup-id xss-lock slock +resetsaver &
 
 # Autostart
 exec --no-startup-id xsetroot -cursor_name left_ptr &
+exec --no-startup-id sleep 1 && xset r rate 300 30 &
 exec --no-startup-id libinput-gestures &
 exec --no-startup-id nitrogen --restore &
 exec --no-startup-id $HOME/.config/polybar/launch.sh i3 &
@@ -185,6 +186,7 @@ bindsym $mod+w            exec  $BROWSER
 bindsym $mod+Print        exec  flameshot gui
 bindsym $mod+e            exec  code-git
 bindsym $mod+z            exec  $TERM -e ranger
+bindsym $mod+n            exec  $TERM -e nvim
 bindsym $mod+q            exec  emacs
 
 # open some configs

@@ -78,5 +78,11 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 autocmd FocusGained * silen! checktime
 
+" Neovide
+let g:neovide_cursor_animation_length=0
+let g:neovide_cursor_trail_length=0
+let g:neovide_cursor_antialiasing=v:true
+set guifont=FiraCode\ Nerd\ Font:h14
+
 colorscheme nord
 set termguicolors

@@ -23,4 +23,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 
+Plug 'mhinz/vim-startify'
+
 call plug#end()

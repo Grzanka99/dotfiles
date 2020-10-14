@@ -17,8 +17,11 @@ super + {_,shift} + d
 super + w
   $BROWSER
 
-super + {z}
-  $TERM -e {ranger}
+super + {z,n}
+  $TERM -e {ranger,nvim}
+
+super + shift + n
+  neovide
 
 super + e
   code-git
