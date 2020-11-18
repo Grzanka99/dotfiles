@@ -35,16 +35,17 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-godot',
   \ 'coc-rls',
-  \ 'coc-tabnine',
   \ 'coc-vetur',
   \ 'coc-css',
   \ 'coc-fish',
   \ 'coc-phpls',
   \ 'coc-explorer',
+  \ 'coc-python',
   \ ]
+  " 'coc-tabnine',
 
 let g:lightline = {
-  \ 'colorscheme': 'nord',
+  \ 'colorscheme': 'onedark',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -84,5 +85,5 @@ let g:neovide_cursor_trail_length=0
 let g:neovide_cursor_antialiasing=v:true
 set guifont=FiraCode\ Nerd\ Font:h14
 
-colorscheme nord
+colorscheme onedark
 set termguicolors

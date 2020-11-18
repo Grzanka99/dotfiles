@@ -20,14 +20,18 @@ libinput-gestures &
 nitrogen --restore &
 picom --experimental-backends -c -b &
 dunst &
-gnome-keyring-daemon --start --components=secrets  &
+
+/usr/lib/polkit-1/polkitd --no-debug &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
+
 nm-applet &
 blueman-applet &
 redshift-gtk &
 volumeicon &
 xfsettingsd &
 xset r rate 200 25 &
+cadence --minimized &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

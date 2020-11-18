@@ -187,6 +187,7 @@ bindsym $mod+Print        exec  flameshot gui
 bindsym $mod+e            exec  code-git
 bindsym $mod+z            exec  $TERM -e ranger
 bindsym $mod+n            exec  $TERM -e nvim
+bindsym $mod+Shift+n      exec  neovide
 bindsym $mod+q            exec  emacs
 
 # open some configs

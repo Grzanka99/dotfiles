@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # wm independent hotkeys
 #
@@ -37,7 +38,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # Lock screen
-super + shift + l
+super + control + shift + l
 	systemctl suspend
 
 # Open configs
@@ -49,8 +50,17 @@ super + alt + {f,s,b,n}
 #
 
 # quit/restart bspwm
-super + control + shift + {e,r}
-	bspc {quit,wm -r}
+super + control + shift + e
+  exec bspc quit
+	if [ -z $SESSION_MANAGER ]
+	then
+	  exec bspc quit
+	else
+	  exec xfce4-session-logout --logout
+	fi
+
+super + control + shift + r
+  bspc wm -r
 
 # close and kill
 super + {_,control + }shift + q
@@ -98,7 +108,7 @@ super + {_,shift +}r
 # focus the next/previous desktop in the current monitor
 super + {_,shift + }Tab
 	bspc desktop -f {next, prev}.local
-}
+
 # focus the last node/desktop
 
 # focus or send to the given desktop

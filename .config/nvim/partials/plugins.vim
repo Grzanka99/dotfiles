@@ -19,10 +19,13 @@ Plug 'prettier/vim-prettier', {
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'rust-lang/rust.vim'
 
-Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 
 Plug 'mhinz/vim-startify'
+
+" Themes
+Plug 'arcticicestudio/nord-vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
