@@ -19,6 +19,7 @@ $HOME/.config/polybar/launch.sh bspwm &
 libinput-gestures &
 nitrogen --restore &
 picom --experimental-backends -c -b &
+# picom -c -b &
 dunst &
 
 /usr/lib/polkit-1/polkitd --no-debug &
@@ -31,7 +32,8 @@ redshift-gtk &
 volumeicon &
 xfsettingsd &
 xset r rate 200 25 &
-cadence --minimized &
+# qjackctl &
+nextcloud &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -80,6 +82,7 @@ bspc rule -a Processing           state=floating
 bspc rule -a Lxappearance         state=floating
 bspc rule -a flameshot            state=floating
 bspc rule -a Blueman-manager      state=floating
+bspc rule -a QjackCtl             state=floating
 
 # Tiled
 bspc rule -a Zathura  state=tiled

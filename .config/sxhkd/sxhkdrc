@@ -8,7 +8,7 @@ super + Return
   $TERM
 
 super + s
-  xset r rate 200 25
+  bspc node focused -t \~floating
 
 # programs
 super + {_,shift} + d
@@ -43,7 +43,8 @@ super + control + shift + l
 
 # Open configs
 super + alt + {f,s,b,n}
-	$TERM -e nvim ~/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc,nvim/init.vim}
+  exec neovide $HOME/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc,nvim/init.vim}
+	# $TERM -e nvim ~/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc,nvim/init.vim}
 
 #
 # bspwm hotkeys

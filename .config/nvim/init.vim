@@ -24,6 +24,14 @@ set encoding=utf-8
 set updatetime=300
 set timeoutlen=100
 
+" undo after close buffer
+set undodir=$HOME/.config/nvim/undodir
+set undofile
+
+
+
+
+
 " Pugin config
 let g:coc_global_extensions = [
   \ 'coc-snippets',

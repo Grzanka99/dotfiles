@@ -16,8 +16,9 @@ exec --no-startup-id nitrogen --restore &
 exec --no-startup-id $HOME/.config/polybar/launch.sh i3 &
 exec --no-startup-id picom --experimental-backends -c -b &
 exec --no-startup-id dunst &
-exec --no-startup-id gnome-keyring-daemon --start --components=secrets &
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id /usr/lib/polkit-1/polkitd --no-debug &
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id blueman-applet &
@@ -88,12 +89,13 @@ floating_modifier $mod
 # modes
 bindsym $mod+f            fullscreen  toggle
 bindsym $mod+Shift+space  floating    toggle
+bindsym $mod+s            floating    toggle
 bindsym $mod+space        focus       mode_toggle
 
 # layouts
 # bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+# bindsym $mod+t layout tabbed
+# bindsym $mod+m layout toggle split
 
 # close/kill window
 bindsym $mod+Shift+q      kill
@@ -191,9 +193,12 @@ bindsym $mod+Shift+n      exec  neovide
 bindsym $mod+q            exec  emacs
 
 # open some configs
-bindsym $mod+Mod1+b       exec  $TERM -e nvim $HOME/.config/i3/config
-bindsym $mod+Mod1+n       exec  $TERM -e nvim $HOME/.config/nvim/init.vim
-bindsym $mod+Mod1+f       exec  $TERM -e nvim $HOME/.config/fish/config.fish
+# bindsym $mod+Mod1+b       exec  $TERM -e nvim $HOME/.config/i3/config
+# bindsym $mod+Mod1+n       exec  $TERM -e nvim $HOME/.config/nvim/init.vim
+# bindsym $mod+Mod1+f       exec  $TERM -e nvim $HOME/.config/fish/config.fish
+bindsym $mod+Mod1+b       exec  neovide $HOME/.config/i3/config
+bindsym $mod+Mod1+n       exec  neovide $HOME/.config/nvim/init.vim
+bindsym $mod+Mod1+f       exec  neovide $HOME/.config/fish/config.fish
 
 # Sys controll keybindings
 # audio
