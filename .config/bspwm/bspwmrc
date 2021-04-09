@@ -1,92 +1,112 @@
-#!/bin/sh
+#!/bin/lua
 
-# Kill if restart
-killall \
-  redshift \
-  redshift-gtk \
-  nm-applet \
-  blueman-applet \
-  volumeicon \
-  &
+function runApp(cmd, args, kill)
+    kill = kill or false
+    args = args or ""
+    if kill then
+        os.execute("killall " .. cmd)
+    end
 
-xset s on &
-xset s 900 &
-xss-lock slock +resetsaver &
-xsetroot -cursor_name left_ptr &
-sleep 1 && xset r rate 300 30 &
-sxhkd &
-$HOME/.config/polybar/launch.sh bspwm &
-libinput-gestures &
-nitrogen --restore &
-picom --experimental-backends -c -b &
-# picom -c -b &
-dunst &
+    os.execute(cmd .. " " .. tostring(args) .. " &")
+end
 
-/usr/lib/polkit-1/polkitd --no-debug &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
+function bspc(args)
+    os.execute("bspc " .. tostring(args))
+end
 
-nm-applet &
-blueman-applet &
-redshift-gtk &
-volumeicon &
-xfsettingsd &
-xset r rate 200 25 &
-# qjackctl &
-nextcloud &
+function rule(class, args)
+    bspc("rule -a " .. class .. " " .. args)
+end
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+function config(name, args)
+    bspc("config " .. name .. " " .. tostring(args))
+end
 
-# Set very basic keybindings
-bspc config pointer_modifier      super
-bspc config pointer_action1       move
-bspc config pointer_action2       resize_corner
-bspc config focus_follows_pointer true
+function follow(class, desktop)
+    rule(class, "desktop='^" .. desktop .. "' follow=on")
+end
 
-# Borders and gaps setup
-bspc config border_width          1
-bspc config window_gap            3
-bspc config top_padding           27
+function floating(class)
+    rule(class, "state=floating")
+end
 
-# Window rules
-bspc config split_ratio           0.52
-bspc config borderless_monocle    true
-bspc config gapless_monocle       true
-bspc config single_monocle	      true
+function tiled(class)
+    rule(class, "state=tiled")
+end
 
-# Color set
-bspc config normal_border_color   "#434c5e"
-bspc config active_border_color   "#4c566a"
-bspc config focused_border_color  "#d8dee9"
-bspc config presel_feedback_color "#8FBCBB"
-bspc config urgent_border_color   "#bf616a"
+-- AUTOSTART
+runApp("xset", "s on")
+runApp("xset", "s 900")
+runApp("xset", "r rate 250 30")
+runApp("xss-lock", "slock +resetsaver")
+runApp("xsetroot", "-cursor_name left_prt")
+runApp("sxhkd")
+runApp("$HOME/.config/polybar/launch.sh", "bspwm")
+runApp("lxsession")
+runApp("libinput-gestures")
+runApp("nitrogen", "--restore")
+runApp("picom", "--experimental-backends -c -b")
+runApp("dunst", "", true)
+runApp("avizo-service")
+runApp("nm-applet", "", true)
+runApp("blueman-applet", "", true)
+runApp("redshift", "", true)
+runApp("redshift-gtk", "", true)
+runApp("wmname", "LG3D")
+runApp("volumeicon", "", true)
 
-# Follow
-bspc rule -a Gimp         desktop='^8'  follow=on
-bspc rule -a Spotify      desktop='^10' follow=on
-bspc rule -a discord      desktop='^10' follow=on
-bspc rule -a Thunderbird  desktop='^10' follow=on
+-- MONITOR SETTINGS
+bspc "monitor HDMI1 -d HDMI1"
+bspc "monitor eDP1 -d I II III IV V VI VII VIII IX X"
 
-# Floatig
-bspc rule -a Pavucontrol          state=floating
-bspc rule -a TelegramDesktop      state=floating
-bspc rule -a zoom                 state=floating
-bspc rule -a Lutris               state=floating
-bspc rule -a Wine                 state=floating
-bspc rule -a PacketTracer7        state=floating
-bspc rule -a Gnome-screenshot     state=floating
-bspc rule -a Skype                state=floating
-bspc rule -a Nm-connection-editor state=floating
-bspc rule -a Pamac-manager        state=floating
-bspc rule -a Processing           state=floating
-bspc rule -a Lxappearance         state=floating
-bspc rule -a flameshot            state=floating
-bspc rule -a Blueman-manager      state=floating
-bspc rule -a QjackCtl             state=floating
+local configs = {
+    {name = "pointer_modifier", args = "mod4"},
+    {name = "pointer_action1", args = "move"},
+    {name = "pointer_action2", args = "resize_corner"},
+    {name = "focus_follows_pointer", args = true},
+    {name = "border_width", args = 1},
+    {name = "window_gap", args = 3},
+    {name = "top_padding", args = 27},
+    {name = "split_ratio", args = 0.52},
+    {name = "borderless_monocle", args = true},
+    {name = "gapless_monocle", args = true},
+    {name = "single_monocle", args = true},
+    {name = "normal_border_color", args = "'#434c5e'"},
+    {name = "active_border_color", args = "'#4c566a'"},
+    {name = "focused_border_color", args = "'#d8dee9'"},
+    {name = "presel_feedback_color", args = "'#8FBCBB'"}
+}
 
-# Tiled
-bspc rule -a Zathura  state=tiled
-bspc rule -a Emacs    state=tiled
+for key, value in pairs(configs) do
+    config(value.name, value.args)
+end
 
-# Weird other rules
-bspc rule -a Plank layer=above manage=on border=off
+follow("Gimp", 8)
+follow("Spotify", 10)
+follow("discord", 10)
+follow("Thunderbird", 10)
+follow("Mailspring", 10)
+
+floating "Pavucontrol"
+floating "TelegramDesktop"
+floating "zoom"
+floating "Lutris"
+floating "Wine"
+floating "PacketTracer7"
+floating "Gnome-screenshot"
+floating "Skype"
+floating "Nm-connection-editor"
+floating "Pamac-manager"
+floating "Processing"
+floating "Lxappearance"
+floating "flameshot"
+floating "Blueman-manager"
+floating "QjackCtl"
+floating "plasmashell"
+
+tiled "Zathura"
+tiled "Emacs"
+
+rule("Avizo-service", "state=floating manage=on border=off")
+rule("Plank", "layer=above manage=on border=off")
+rule("lattedock", "layer=above manage=on border=off")
