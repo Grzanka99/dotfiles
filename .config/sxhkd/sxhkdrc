@@ -1,14 +1,18 @@
-#!/bin/bash
+#!/bin/zsh
 #
 # wm independent hotkeys
 #
 
 # terminal emulator
-super + Return
-  $TERM
+# super + Return
+#   $TERM
 
-super + s
-  bspc node focused -t \~floating
+super + Return
+  kitty
+
+super + shift + f
+  dolphin
+  # bspc node focused -t \~floating
 
 # programs
 super + {_,shift} + d
@@ -16,19 +20,16 @@ super + {_,shift} + d
 
 # Open default web browser
 super + w
-  $BROWSER
+  google-chrome-stable
 
-super + {z,n}
-  $TERM -e {ranger,nvim}
+super + {z,n,b}
+  kitty -e {ranger,nvim,bpytop}
 
 super + shift + n
-  neovide
+  goneovim
 
 super + e
-  code-git
-
-super + q
-  emacs
+  code-oss
 
 super + Print
 	flameshot gui
@@ -43,7 +44,7 @@ super + control + shift + l
 
 # Open configs
 super + alt + {f,s,b,n}
-  exec neovide $HOME/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc,nvim/init.vim}
+  exec goneovim $HOME/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc,nvim/init.vim}
 	# $TERM -e nvim ~/.config/{fish/config.fish,sxhkd/sxhkdrc,bspwm/bspwmrc,nvim/init.vim}
 
 #
@@ -116,6 +117,9 @@ super + {_,shift + }Tab
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+
+super + minus
+  bspc desktop -f HDMI1
 #
 # preselect
 #
@@ -154,19 +158,19 @@ super + {h,j,k,l}
 
 # FN
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%
+	volumectl raise
 
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
+	volumectl lower
 
 XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	volumectl mute
 XF86AudioMicMute
-	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86MonBrightnessUp
-	xbacklight -inc 10 # increase screen brightness
+  lightctl raise
 
 XF86MonBrightnessDown
-	xbacklight -dec 10 # decrease screen brightness
+  lightctl lower
 

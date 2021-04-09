@@ -32,6 +32,43 @@ nord13-solid = #ebcb8b
 nord14-solid = #a3be8c
 nord15-solid = #b48ead
 
+[bar/cezary1]
+monitor = HDMI1
+bottom = false
+fixed-center = true
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+background = ${colors.nord0}
+foreground = ${colors.nord4-solid}
+radius = 0
+line-size = 1
+border-size =
+border-color =
+padding-left = 0
+padding-right = 1
+module-margin = 1
+
+wm-restack = bspwm
+override-redirect = true
+
+;Fonts
+font-0 = "FiranSansRetina:pixelsize=11;2"
+font-1 = "NotoColorEmoji:scale=11;2"
+font-2 = FiraCodeRetina
+font-3 = FiraCodeRetina
+dpi-x = 96
+dpi-y = 96
+
+separator = |
+
+wm-name = "bspwm"
+enable-ipc = false
+
+modules-center = date
+modules-left = bspwm title
+modules-right = scf temperature memory
 
 [bar/cezary]
 monitor = eDP1
@@ -80,13 +117,24 @@ enable-ipc = false
 
 modules-center = date
 modules-left = bspwm title
-modules-right = cpu temperature memory audio battery backlight
+modules-right = cpu-usage scf temperature memory audio battery backlight
 
 [module/date]
 type = internal/date
 date = %d-%m-%Y%
 time = %H:%M:%S
 label = %time% / %date%
+
+[module/scf]
+type = custom/script
+exec = ~/.config/polybar/scf.sh
+internal = 1
+
+[module/cpu-usage]
+type = internal/cpu
+internal = 0.5
+format = <label>
+label = CPU: %percentage%%
 
 [module/cpu]
 type = internal/cpu
@@ -110,7 +158,7 @@ ramp-coreload-5-foreground = ${colors.nord11}
 type = internal/memory
 internal = 1
 format = <label>
-label = RAM: %gb_used% / %gb_total%
+label = %gb_used% / %gb_total%
 
 [module/audio]
 type = internal/pulseaudio
