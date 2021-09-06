@@ -36,24 +36,42 @@ tab_bar_background  #3b4252
 background_opacity  1
 
 
-background            #0F111A
-foreground            #8F93A2
-cursor                #c0cad0
-selection_background  #3d4b4e
-color0                #000000
-color8                #717CB4
-color1                #b20602
-color9                #E53935
-color2                #5e8526
-color10               #91b859
-color3                #c37101
-color11               #f6a434
-color4                #2e4f85
-color12               #6182B8
-color5                #491acc
-color13               #7c4dff
-color6                #067a82
-color14               #39adb5
-color7                #54637d
-color15               #ffffff
-selection_foreground  #090B10
+foreground            #D8DEE9
+background            #2E3440
+selection_foreground  #000000
+selection_background  #FFFACD
+url_color             #0087BD
+cursor                #81A1C1
+
+# black
+color0   #3B4252
+color8   #4C566A
+
+# red
+color1   #BF616A
+color9   #BF616A
+
+# green
+color2   #A3BE8C
+color10  #A3BE8C
+
+# yellow
+color3   #EBCB8B
+color11  #EBCB8B
+
+# blue
+color4  #81A1C1
+color12 #81A1C1
+
+# magenta
+color5   #B48EAD
+color13  #B48EAD
+
+# cyan
+color6   #88C0D0
+color14  #8FBCBB
+
+# white
+color7   #E5E9F0
+color15  #ECEFF4
+
