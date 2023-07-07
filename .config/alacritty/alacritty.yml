@@ -6,53 +6,90 @@ window:
   decorations: full
   title: Alacritty
 
+  opacity: 0.9
+
   class:
     instance: Alacritty
     general: Alacritty
 
 font:
   normal:
-    family: Fira Code Retina
+    family: IntelOne Mono
     style: Regular
   bold:
-    family: Fira Code Retina
+    family: IntelOne Mono
     style: Bold
   italic:
-    family: Fira Code Retina
+    family: IntelOne Mono
     style: Italic
   bold_italic:
-    family: Fira Code Retina
+    family: IntelOne Mono
     style: Bold Italic
 
-    size: 10
+  size: 12
 
 cursor:
   style: Beam
 
 colors:
   primary:
-    background: "0x2E3440"
-    foreground: "0xD8DEE9"
+    foreground: "#e0def4"
+    background: "#191724"
+    dim_foreground: "#908caa"
+    bright_foreground: "#e0def4"
   cursor:
-    text: "0x2E3440"
-    cursor: "0xD8DEE9"
+    text: "#e0def4"
+    cursor: "#524f67"
+  vi_mode_cursor:
+    text: "#e0def4"
+    cursor: "#524f67"
+  search:
+    matches:
+      foreground: "#908caa"
+      background: "#26233a"
+    focused_match:
+      foreground: "#191724"
+      background: "#ebbcba"
+  hints:
+    start:
+      foreground: "#908caa"
+      background: "#1f1d2e"
+    end:
+      foreground: "#6e6a86"
+      background: "#1f1d2e"
+  line_indicator:
+    foreground: None
+    background: None
+  footer_bar:
+    foreground: "#e0def4"
+    background: "#1f1d2e"
+  selection:
+    text: "#e0def4"
+    background: "#403d52"
   normal:
-    black: "0x3B4252"
-    red: "0xBF616A"
-    green: "0xA3BE8C"
-    yellow: "0xEBCB8B"
-    blue: "0x81A1C1"
-    magenta: "0xB48EAD"
-    cyan: "0x88C0D0"
-    white: "0xE5E9F0"
+    black: "#26233a"
+    red: "#eb6f92"
+    green: "#31748f"
+    yellow: "#f6c177"
+    blue: "#9ccfd8"
+    magenta: "#c4a7e7"
+    cyan: "#ebbcba"
+    white: "#e0def4"
   bright:
-    black: "0x4C566A"
-    red: "0xBF616A"
-    green: "0xA3BE8C"
-    yellow: "0xEBCB8B"
-    blue: "0x81A1C1"
-    magenta: "0xB48EAD"
-    cyan: "0x8FBCBB"
-    white: "0xECEFF4"
-
-background_opacity: 0.9
+    black: "#6e6a86"
+    red: "#eb6f92"
+    green: "#31748f"
+    yellow: "#f6c177"
+    blue: "#9ccfd8"
+    magenta: "#c4a7e7"
+    cyan: "#ebbcba"
+    white: "#e0def4"
+  dim:
+    black: "#6e6a86"
+    red: "#eb6f92"
+    green: "#31748f"
+    yellow: "#f6c177"
+    blue: "#9ccfd8"
+    magenta: "#c4a7e7"
+    cyan: "#ebbcba"
+    white: "#e0def4"
