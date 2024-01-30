@@ -42,7 +42,12 @@ output DP-3 {
     mode 2560x1440@170hz
 }
 
-output DP-4 {
+# output DP-1 {
+#     pos 0,0
+#     mode 2560x1440@144hz
+# }
+
+output DP-1 {
     pos 2560,0
     mode 1920x1080@165hz
 }
@@ -61,9 +66,9 @@ workspace 4 output DP-3
 workspace 5 output DP-3
 workspace 6 output DP-3
 workspace 7 output DP-3
-workspace 8 output DP-4
-workspace 9 output DP-4
-workspace 10 output DP-4
+workspace 8 output DP-1
+workspace 9 output DP-1
+workspace 10 output DP-1
 #
 # Example configuration:
 #
@@ -132,6 +137,7 @@ input type:keyboard {
     # Start your launcher
     bindsym $mod+d exec $menu
     # bindsym $mod+w exec GTK_USE_PORTAL=wayland google-chrome-stable --password-store=gnome
+    # bindsym $mod+w exec flatpak run org.chromium.Chromium
     bindsym $mod+w exec firefox
 
 	# Lock your screen
